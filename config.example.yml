@@ -1,0 +1,3 @@
+token: TOKEN
+prefix: log!
+permitted_users: ['00000000000000']
