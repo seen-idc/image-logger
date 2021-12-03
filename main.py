@@ -56,8 +56,9 @@ async def on_message(msg: Message):
                 webhook.send(content=f'{metadata}\n\n{urls_text}')
             else:
                 urls = [x.group() for x in re.finditer(url_regex, msg.content)]
-                urls_text = '\n'.join(urls)
-                webhook.send(content=f'{metadata}\n\n{urls_text}')
+                if len(urls) > 0:
+                    urls_text = '\n'.join(urls)
+                    webhook.send(content=f'{metadata}\n\n{urls_text}')
 
 @bot.command('add-webhook')
 async def add_wehook(ctx, url):
